@@ -1,0 +1,224 @@
+/* ==========================================================================
+   StudyFlow — Responsive Styling & Mobile Breakpoints
+   ========================================================================== */
+
+/* Tablet Breakpoint (max-width: 992px) */
+@media (max-width: 992px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+    padding: 2.5rem 0 3.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.75rem;
+  }
+
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-cta {
+    justify-content: center;
+  }
+
+  .hero-mockup-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .planner-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .day-hours-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Mobile Breakpoint (max-width: 768px) */
+@media (max-width: 768px) {
+  :root {
+    --nav-height: 64px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: block;
+  }
+
+  .hero-title {
+    font-size: 2.25rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+  }
+
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .greeting-banner {
+    padding: 1.5rem;
+  }
+
+  .greeting-banner h1 {
+    font-size: 1.65rem;
+  }
+
+  .timer-digits {
+    font-size: 4rem;
+  }
+
+  .focus-timer-box {
+    padding: 2rem 1.25rem;
+  }
+
+  .day-hours-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .session-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+
+  .session-left {
+    width: 100%;
+  }
+
+  .session-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer-nav {
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .academic-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .academic-banner .btn {
+    width: 100%;
+  }
+
+  .toast-container {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .toast {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .pill-selector {
+    flex-direction: column;
+  }
+
+  .pill-option {
+    width: 100%;
+  }
+}
+
+/* Small Mobile Breakpoint (max-width: 480px) */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.95rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+  }
+
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .timer-digits {
+    font-size: 3.25rem;
+  }
+
+  .timer-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .timer-actions .btn {
+    width: 100%;
+  }
+
+  .day-hours-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .subject-item-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .subject-item-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .card {
+    padding: 1.25rem;
+  }
+}

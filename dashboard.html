@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StudyFlow Dashboard — Real-time academic progress tracking, today's schedule, study streaks, and subject completion metrics.">
+  <title>Analytics Dashboard — StudyFlow</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="container nav-container">
+      <a href="index.html" class="brand" aria-label="StudyFlow Home">
+        <div class="brand-icon">⚡</div>
+        <div>Study<span>Flow</span></div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="planner.html" class="nav-link">Planner</a></li>
+        <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+        <li><a href="focus.html" class="nav-link">Focus</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button id="dash-load-demo-btn" class="btn btn-outline btn-sm" title="Load sample student progress">
+          ⚡ Demo Data
+        </button>
+        <button class="btn-icon theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Light/Dark Theme">
+          🌙
+        </button>
+        <button class="hamburger-btn" aria-label="Open Mobile Menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-nav-header">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div>Study<span>Flow</span></div>
+      </div>
+      <button class="btn-icon mobile-nav-close" aria-label="Close Mobile Menu">✕</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="planner.html" class="nav-link">📅 Planner</a></li>
+      <li><a href="dashboard.html" class="nav-link active">📊 Dashboard</a></li>
+      <li><a href="focus.html" class="nav-link">🎯 Focus Mode</a></li>
+    </ul>
+    <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+      <span style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Project Better Tomorrow</span>
+      <span class="badge badge-primary">Design Thinking Prototype</span>
+    </div>
+  </aside>
+
+  <!-- Page Content -->
+  <main class="page-wrapper">
+    <div class="container">
+
+      <!-- Demo Mode Notification Banner (if active) -->
+      <div id="demo-mode-banner" class="academic-banner" style="display: none; background: var(--primary-light); border-left-color: var(--primary);">
+        <div class="academic-info">
+          <span class="badge badge-primary">Sample Mode</span>
+          <div>
+            <strong style="color: var(--text-primary); font-size: 0.95rem;">Demonstration Data Loaded</strong>
+            <div style="font-size: 0.82rem; color: var(--text-secondary);">Currently displaying sample subjects (DSA, Java, Math, CN). Modify anytime in the planner.</div>
+          </div>
+        </div>
+        <button id="dash-reset-data-btn" class="btn btn-secondary btn-sm" style="color: var(--danger);">Reset Data</button>
+      </div>
+
+      <!-- Empty State (When no subjects or schedule exists) -->
+      <div id="dashboard-empty-state" class="empty-state" style="display: none; margin: 2rem 0;">
+        <div class="empty-state-icon">📊</div>
+        <h2 class="empty-state-title">Your dashboard is waiting for you!</h2>
+        <p class="empty-state-text">
+          You haven't generated a study plan yet. Add your subjects and daily available hours in the planner to see live progress tracking.
+        </p>
+        <div style="display: flex; gap: 1rem;">
+          <a href="planner.html" class="btn btn-primary">Go to Planner →</a>
+          <button onclick="DemoDataLoader.load(); location.reload();" class="btn btn-secondary">⚡ Load Demo Data</button>
+        </div>
+      </div>
+
+      <!-- Dashboard Main Content -->
+      <div id="dashboard-main-content">
+
+        <!-- Time-aware Greeting Banner -->
+        <div class="greeting-banner">
+          <div class="greeting-text">
+            <h1 id="greeting-heading">Good afternoon! 👋</h1>
+            <p id="greeting-date">Wednesday, September 16, 2026</p>
+          </div>
+          <div class="greeting-actions">
+            <a href="focus.html" class="btn btn-secondary" style="background: rgba(255,255,255,0.2); color: #ffffff; border: 1px solid rgba(255,255,255,0.4);">
+              🎯 Start Focus Mode
+            </a>
+          </div>
+        </div>
+
+        <!-- 4 Summary Stat Cards -->
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-icon icon-purple">📋</div>
+            <div class="stat-info">
+              <div class="stat-value" id="stat-today-tasks">0</div>
+              <div class="stat-label">Today's Tasks</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon icon-green">✅</div>
+            <div class="stat-info">
+              <div class="stat-value" id="stat-completed-tasks">0 / 0</div>
+              <div class="stat-label">Completed Today</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon icon-cyan">⏱️</div>
+            <div class="stat-info">
+              <div class="stat-value" id="stat-study-time">0m</div>
+              <div class="stat-label">Total Study Time</div>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-icon icon-yellow">🔥</div>
+            <div class="stat-info">
+              <div class="stat-value" id="stat-streak">0 days</div>
+              <div class="stat-label">Current Streak</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress Overview Grid -->
+        <div class="grid-2" style="margin-bottom: 2rem;">
+
+          <!-- Overall Progress Ring -->
+          <div class="card progress-ring-card">
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--text-primary);">Overall Weekly Progress</h3>
+            <p style="font-size: 0.85rem; color: var(--text-muted); max-width: 320px;">
+              Calculated dynamically from all completed vs scheduled tasks across your weekly plan.
+            </p>
+
+            <div class="ring-wrapper">
+              <svg width="160" height="160" class="ring-circle">
+                <circle class="ring-bg" stroke-width="12" fill="transparent" r="64" cx="80" cy="80" />
+                <circle id="progress-ring-circle" class="ring-progress" stroke-width="12" fill="transparent" r="64" cx="80" cy="80" />
+              </svg>
+              <div class="ring-center-text">
+                <div class="ring-percent" id="overall-progress-text">0%</div>
+                <div class="ring-subtext">Completed</div>
+              </div>
+            </div>
+
+            <div style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 0.5rem;">
+              Keep up the momentum to reach 100%!
+            </div>
+          </div>
+
+          <!-- Subject Breakdown Progress Bars -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">📚 Subject Completion Breakdown</h3>
+              <a href="planner.html" class="btn btn-outline btn-sm">Edit Plan</a>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+              Live completion tracking based on individual subject sessions.
+            </p>
+
+            <div id="subject-progress-container" class="subject-progress-list">
+              <!-- Dynamically rendered subject bars -->
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Today's Plan & Weekly Activity Grid -->
+        <div class="grid-2">
+
+          <!-- Today's Scheduled Plan -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">📅 Today's Study Plan</h3>
+              <a href="planner.html" class="btn btn-secondary btn-sm">Full Week</a>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+              Check off sessions as you finish them or jump straight into Pomodoro focus.
+            </p>
+
+            <div id="today-plan-container">
+              <!-- Dynamically populated today's sessions -->
+            </div>
+          </div>
+
+          <!-- Weekly Completion Chart (Mon - Sun) -->
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">📈 Weekly Completion Trend</h3>
+              <span class="badge badge-neutral">Mon – Sun</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.75rem;">
+              Completion percentages across all seven days of the current study cycle.
+            </p>
+
+            <div id="weekly-chart-container" class="weekly-chart">
+              <!-- Dynamically populated chart columns -->
+            </div>
+
+            <div style="margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-between; font-size: 0.82rem; color: var(--text-muted);">
+              <span>💡 Tip: Consistent 45-minute daily blocks beat marathon cramming.</span>
+              <a href="focus.html" style="font-weight: 600;">Focus Now →</a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand">
+            <div class="brand-icon">⚡</div>
+            <div>Study<span>Flow</span></div>
+          </div>
+          <p>
+            "Plan your time. Focus your effort. Track your progress."<br>
+            Project Better Tomorrow — College Design Thinking Prototype.
+          </p>
+        </div>
+
+        <div class="footer-nav">
+          <div class="footer-nav-col">
+            <h4>Application</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="planner.html">Study Planner</a></li>
+              <li><a href="dashboard.html">Analytics Dashboard</a></li>
+              <li><a href="focus.html">Focus Mode</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav-col">
+            <h4>Controls</h4>
+            <ul>
+              <li><button class="btn-outline btn-sm" onclick="DemoDataLoader.load(); location.reload();" style="border:none; cursor:pointer; color:var(--primary); background:transparent; padding:0; font-size:inherit;">Load Sample Data</button></li>
+              <li><a href="index.html#about-project">Design Thinking Specs</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 StudyFlow • <strong>Project Better Tomorrow</strong>
+        </div>
+        <div>
+          Dynamic progress tracking rendered entirely in-browser.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

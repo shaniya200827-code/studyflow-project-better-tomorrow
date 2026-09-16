@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StudyFlow Focus Mode — Distraction-free Pomodoro study timer with customizable intervals and automatic study progress logging.">
+  <title>Focus Mode — StudyFlow</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="container nav-container">
+      <a href="index.html" class="brand" aria-label="StudyFlow Home">
+        <div class="brand-icon">⚡</div>
+        <div>Study<span>Flow</span></div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="planner.html" class="nav-link">Planner</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="focus.html" class="nav-link active">Focus</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn-icon theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Light/Dark Theme">
+          🌙
+        </button>
+        <button class="hamburger-btn" aria-label="Open Mobile Menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-nav-header">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div>Study<span>Flow</span></div>
+      </div>
+      <button class="btn-icon mobile-nav-close" aria-label="Close Mobile Menu">✕</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="nav-link">🏠 Home</a></li>
+      <li><a href="planner.html" class="nav-link">📅 Planner</a></li>
+      <li><a href="dashboard.html" class="nav-link">📊 Dashboard</a></li>
+      <li><a href="focus.html" class="nav-link active">🎯 Focus Mode</a></li>
+    </ul>
+  </aside>
+
+  <!-- Page Content -->
+  <main class="page-wrapper">
+    <div class="container">
+
+      <div class="focus-container">
+
+        <div class="focus-header-tag">
+          <span>🎯 DISTRACTION-FREE FOCUS MODE</span>
+        </div>
+
+        <!-- Subject and Task Selector Card -->
+        <div class="focus-subject-card">
+          <div style="text-align: left; flex: 1;">
+            <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Current Session</div>
+            <div id="focus-subject-name" style="font-size: 1.25rem; font-weight: 800; color: var(--primary);">General Study</div>
+            <div id="focus-task-name" style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary);">Deep Focus Block</div>
+          </div>
+          <div>
+            <span id="focus-session-status" class="status-pill pending">READY</span>
+          </div>
+        </div>
+
+        <!-- Timer Card -->
+        <div class="focus-timer-box">
+
+          <!-- Preset Interval Switching Buttons -->
+          <div class="timer-preset-pills" role="tablist" aria-label="Select study duration">
+            <button class="timer-preset-btn active" data-minutes="25">25m Focus</button>
+            <button class="timer-preset-btn" data-minutes="45">45m Deep Work</button>
+            <button class="timer-preset-btn" data-minutes="60">60m Extended</button>
+            <button class="timer-preset-btn" data-minutes="5" style="border-style: dashed;">5m Break</button>
+            <button class="timer-preset-btn" data-minutes="15" style="border-style: dashed;">15m Long Break</button>
+          </div>
+
+          <!-- Countdown Digits -->
+          <div class="timer-digits" id="timer-digits" aria-live="polite">25:00</div>
+
+          <!-- Timer Actions -->
+          <div class="timer-actions">
+            <button id="timer-start-btn" class="btn btn-primary btn-lg" style="min-width: 140px;">
+              ▶ Start Focus
+            </button>
+            <button id="timer-pause-btn" class="btn btn-secondary btn-lg" style="display: none; min-width: 140px;">
+              ⏸ Pause
+            </button>
+            <button id="timer-reset-btn" class="btn btn-secondary btn-lg">
+              🔄 Reset
+            </button>
+            <button id="timer-finish-btn" class="btn btn-outline btn-lg" style="color: var(--success); border-color: var(--success);">
+              ✅ Finish Session
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Session Customization Toggle Accordion / Details -->
+        <div class="card" style="text-align: left; padding: 1.25rem 1.5rem;">
+          <h3 style="font-size: 1rem; margin-bottom: 0.75rem;">⚙️ Customize Focus Session</h3>
+          <div class="form-row">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label for="focus-subject-select" class="form-label">Subject</label>
+              <select id="focus-subject-select" class="form-select">
+                <option value="General Study">General Study / Revision</option>
+              </select>
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+              <label for="focus-task-input" class="form-label">Specific Chapter / Task</label>
+              <input type="text" id="focus-task-input" class="form-input" placeholder="e.g. Chapter 4 Practice Exercises">
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Back Navigation -->
+        <div style="margin-top: 1.75rem; display: flex; justify-content: center; gap: 1rem;">
+          <a href="planner.html" class="btn btn-secondary btn-sm">← Back to Planner</a>
+          <a href="dashboard.html" class="btn btn-secondary btn-sm">View Dashboard →</a>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand">
+            <div class="brand-icon">⚡</div>
+            <div>Study<span>Flow</span></div>
+          </div>
+          <p>
+            "Plan your time. Focus your effort. Track your progress."<br>
+            Project Better Tomorrow — College Design Thinking Prototype.
+          </p>
+        </div>
+
+        <div class="footer-nav">
+          <div class="footer-nav-col">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="planner.html">Planner</a></li>
+              <li><a href="dashboard.html">Dashboard</a></li>
+              <li><a href="focus.html">Focus Mode</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 StudyFlow • <strong>Project Better Tomorrow</strong>
+        </div>
+        <div>
+          Distraction-free Pomodoro study timer with Web Audio API chime.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/focus.js"></script>
+</body>
+</html>

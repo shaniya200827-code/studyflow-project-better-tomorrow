@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="StudyFlow — Personalized study planning and focus-management web application for college students. Part of Project Better Tomorrow.">
+  <title>StudyFlow — Study Smarter. Not Longer.</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <div class="container nav-container">
+      <a href="index.html" class="brand" aria-label="StudyFlow Home">
+        <div class="brand-icon">⚡</div>
+        <div>Study<span>Flow</span></div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="planner.html" class="nav-link">Planner</a></li>
+        <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+        <li><a href="focus.html" class="nav-link">Focus</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="btn-icon theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Light/Dark Theme">
+          🌙
+        </button>
+        <a href="planner.html" class="btn btn-primary btn-sm" style="display: none; @media(min-width: 600px){display:inline-flex;}">
+          Get Started
+        </a>
+        <button class="hamburger-btn" aria-label="Open Mobile Menu">
+          ☰
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <div class="mobile-nav-header">
+      <div class="brand">
+        <div class="brand-icon">⚡</div>
+        <div>Study<span>Flow</span></div>
+      </div>
+      <button class="btn-icon mobile-nav-close" aria-label="Close Mobile Menu">✕</button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="index.html" class="nav-link active">🏠 Home</a></li>
+      <li><a href="planner.html" class="nav-link">📅 Planner</a></li>
+      <li><a href="dashboard.html" class="nav-link">📊 Dashboard</a></li>
+      <li><a href="focus.html" class="nav-link">🎯 Focus Mode</a></li>
+    </ul>
+    <div style="margin-top: auto; padding-top: 1.5rem; border-top: 1px solid var(--border);">
+      <span style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 0.5rem;">Project Better Tomorrow</span>
+      <span class="badge badge-primary">Design Thinking Prototype</span>
+    </div>
+  </aside>
+
+  <!-- Page Content -->
+  <main class="page-wrapper">
+    <div class="container">
+
+      <!-- Academic Project Context Banner -->
+      <div class="academic-banner" role="complementary">
+        <div class="academic-info">
+          <span class="academic-tag">College Prototype</span>
+          <div>
+            <span class="academic-title">Project Better Tomorrow — Design Thinking Initiative</span>
+            <div class="academic-sub">A functional prototype addressing academic overload through rule-based intelligent study planning.</div>
+          </div>
+        </div>
+        <a href="#about-project" class="btn btn-secondary btn-sm">Learn About Prototype</a>
+      </div>
+
+      <!-- Hero Section -->
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span>✨ Intelligent Study Flow Architecture</span>
+          </div>
+          <h1 class="hero-title" id="hero-heading">
+            Study smarter. <br>
+            <span class="gradient-text">Not longer.</span>
+          </h1>
+          <p class="hero-subtitle">
+            StudyFlow turns your subjects, deadlines, and available time into a personalized study plan that keeps you focused and on track.
+          </p>
+          <div class="hero-cta">
+            <a href="planner.html" class="btn btn-primary btn-lg">Create My Study Plan →</a>
+            <a href="#features" class="btn btn-secondary btn-lg">Explore StudyFlow</a>
+          </div>
+        </div>
+
+        <!-- Dashboard Mockup Illustration -->
+        <div class="hero-mockup-wrapper" aria-hidden="true">
+          <div class="hero-mockup">
+            <div class="mockup-header">
+              <span class="mockup-dot red"></span>
+              <span class="mockup-dot yellow"></span>
+              <span class="mockup-dot green"></span>
+              <span class="mockup-title">StudyFlow Live Workspace Preview</span>
+            </div>
+            <div class="mockup-body">
+              <div class="mockup-stat-row">
+                <div class="mockup-mini-card">
+                  <div class="mockup-mini-val">4</div>
+                  <div class="mockup-mini-label">TODAY'S SESSIONS</div>
+                </div>
+                <div class="mockup-mini-card">
+                  <div class="mockup-mini-val">2h 15m</div>
+                  <div class="mockup-mini-label">STUDY LOGGED</div>
+                </div>
+                <div class="mockup-mini-card">
+                  <div class="mockup-mini-val">78%</div>
+                  <div class="mockup-mini-label">WEEKLY GOAL</div>
+                </div>
+              </div>
+              <div class="mockup-tasks">
+                <div class="mockup-task-item" style="border-left-color: var(--danger);">
+                  <div>
+                    <div style="color: var(--text-primary);">DSA — Linked List Algorithms</div>
+                    <div style="font-size: 0.72rem; color: var(--text-muted);">6:00 PM – 7:15 PM • High Priority</div>
+                  </div>
+                  <span class="badge badge-high">URGENT</span>
+                </div>
+                <div class="mockup-task-item" style="border-left-color: var(--warning);">
+                  <div>
+                    <div style="color: var(--text-primary);">Java — OOP & Inheritance</div>
+                    <div style="font-size: 0.72rem; color: var(--text-muted);">7:30 PM – 8:15 PM • Medium Priority</div>
+                  </div>
+                  <span class="badge badge-medium">ACTIVE</span>
+                </div>
+                <div class="mockup-task-item" style="border-left-color: var(--success);">
+                  <div>
+                    <div style="color: var(--text-primary);">Math — Matrix Operations</div>
+                    <div style="font-size: 0.72rem; color: var(--text-muted);">8:30 PM – 9:30 PM • Completed</div>
+                  </div>
+                  <span class="badge badge-low">DONE</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 1 — The Problem -->
+      <section class="section" id="problem" aria-labelledby="problem-heading">
+        <div class="section-header">
+          <span class="section-tag">The Student Challenge</span>
+          <h2 class="section-title" id="problem-heading">Studying shouldn't feel chaotic.</h2>
+          <p class="section-subtitle">
+            College life involves competing assignments, sudden assessments, and fragmented hours. Students often struggle to manage multiple priorities without burning out.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="problem-card">
+            <div class="card-icon icon-red">📚</div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.65rem;">Too many subjects & deadlines</h3>
+            <p>
+              Balancing five or six demanding courses at once makes it difficult to gauge which deadline needs immediate attention and which can wait.
+            </p>
+          </div>
+
+          <div class="problem-card">
+            <div class="card-icon icon-yellow">⚖️</div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.65rem;">Deciding what to study first</h3>
+            <p>
+              Decision paralysis consumes valuable study energy. Students often spend hours wondering where to begin instead of actually learning.
+            </p>
+          </div>
+
+          <div class="problem-card">
+            <div class="card-icon icon-purple">📉</div>
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.65rem;">Lack of progress tracking</h3>
+            <p>
+              Without visible metrics, it is easy to feel unaccomplished or lose momentum. Traditional to-do lists don't connect daily effort to exam readiness.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2 — The Solution -->
+      <section class="section" id="solution" aria-labelledby="solution-heading">
+        <div class="section-header">
+          <span class="section-tag">The Solution</span>
+          <h2 class="section-title" id="solution-heading">Meet StudyFlow</h2>
+          <p class="section-subtitle">
+            StudyFlow combines prioritization, personalized scheduling, focus sessions, and progress tracking in one simple workspace.
+          </p>
+
+          <div class="solution-workflow">
+            <div class="workflow-stage"><span>01</span> PLAN</div>
+            <div class="workflow-arrow">→</div>
+            <div class="workflow-stage"><span>02</span> PRIORITIZE</div>
+            <div class="workflow-arrow">→</div>
+            <div class="workflow-stage"><span>03</span> FOCUS</div>
+            <div class="workflow-arrow">→</div>
+            <div class="workflow-stage"><span>04</span> TRACK</div>
+            <div class="workflow-arrow">→</div>
+            <div class="workflow-stage"><span>05</span> IMPROVE</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3 — Features -->
+      <section class="section" id="features" aria-labelledby="features-heading">
+        <div class="section-header">
+          <span class="section-tag">Core Features</span>
+          <h2 class="section-title" id="features-heading">Designed for Student Success</h2>
+          <p class="section-subtitle">
+            Everything you need to master your academic timetable without cognitive overload.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="feature-card">
+            <div class="card-icon icon-purple">🧭</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Smart Planning</h3>
+            <p>Create a customized study schedule based on your specific subjects, exam dates, difficulty levels, and available daily hours.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="card-icon icon-cyan">🎯</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Priority-Based Scheduling</h3>
+            <p>Our rule-based scheduler allocates greater attention and prime focus blocks to subjects that are more urgent or demanding.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="card-icon icon-red">⏱️</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Focus Mode</h3>
+            <p>Eliminate distractions with a dedicated Pomodoro countdown timer with switchable 25, 45, and 60-minute deep-work intervals.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="card-icon icon-green">📊</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Progress Tracking</h3>
+            <p>Track completed tasks, subject-by-subject percentage completion, total study minutes, and consecutive day streaks.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="card-icon icon-yellow">🔄</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Flexible Planning</h3>
+            <p>Easily edit subjects, modify daily study availability, and regenerate or fine-tune individual sessions at any time.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="card-icon icon-purple">💾</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 0.5rem;">Local Saving</h3>
+            <p>All your subjects, plans, and metrics are preserved instantly in your browser's local storage. Zero logins or external trackers.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4 — How It Works -->
+      <section class="section" id="how-it-works" aria-labelledby="steps-heading">
+        <div class="section-header">
+          <span class="section-tag">Step-by-Step Workflow</span>
+          <h2 class="section-title" id="steps-heading">How StudyFlow Works</h2>
+          <p class="section-subtitle">Four streamlined steps from chaotic syllabus to crystal-clear daily execution.</p>
+        </div>
+
+        <div class="grid-4">
+          <div class="step-card">
+            <div class="step-num">01</div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">Add Subjects</h3>
+            <p style="font-size: 0.92rem;">Enter your subjects, difficulty rating (Easy/Med/Hard), upcoming exam dates, and workload.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num">02</div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">Set Your Time</h3>
+            <p style="font-size: 0.92rem;">Tell StudyFlow how many hours you realistically have available each day of the week.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num">03</div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">Generate Plan</h3>
+            <p style="font-size: 0.92rem;">Our rule-based scheduler computes priorities and formats a structured daily timetable.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-num">04</div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">Study & Track</h3>
+            <p style="font-size: 0.92rem;">Launch focus sessions, mark milestones as completed, and watch your dashboard metrics rise.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5 — Call To Action -->
+      <section class="section" style="border-top: none; padding-top: 1rem;">
+        <div class="cta-banner">
+          <h2>Your next productive study session starts here.</h2>
+          <p>
+            Take control of your academic timetable today with a personalized, rule-based study schedule built for clarity and focus.
+          </p>
+          <a href="planner.html" class="btn btn-cta">✨ Create My Plan</a>
+        </div>
+      </section>
+
+      <!-- Section 6 — Academic & Design Thinking Project Context -->
+      <section class="section" id="about-project" aria-labelledby="about-heading">
+        <div class="section-header">
+          <span class="section-tag">Design Thinking Context</span>
+          <h2 class="section-title" id="about-heading">Built for Better Tomorrows</h2>
+          <p class="section-subtitle">
+            StudyFlow was created as a Design Thinking prototype to address the everyday friction students face when managing study time, deadlines, and competing academic priorities.
+          </p>
+        </div>
+
+        <div class="card" style="max-width: 900px; margin: 0 auto; line-height: 1.7;">
+          <h3 style="font-size: 1.25rem; margin-bottom: 1rem; color: var(--primary);">Design Thinking Methodology</h3>
+          <p style="margin-bottom: 1.25rem;">
+            This prototype demonstrates the complete 5-stage human-centered design approach:
+          </p>
+
+          <div class="grid-3" style="gap: 1.25rem; margin-bottom: 1.5rem;">
+            <div style="background: var(--bg-surface-subtle); padding: 1.25rem; border-radius: var(--radius-md);">
+              <strong style="color: var(--text-primary); display: block; margin-bottom: 0.25rem;">1. Empathize & Define</strong>
+              <p style="font-size: 0.88rem;">Interviewing peers revealed overwhelming cognitive load when trying to schedule multi-subject revision.</p>
+            </div>
+            <div style="background: var(--bg-surface-subtle); padding: 1.25rem; border-radius: var(--radius-md);">
+              <strong style="color: var(--text-primary); display: block; margin-bottom: 0.25rem;">2. Ideation & Prototype</strong>
+              <p style="font-size: 0.88rem;">Formulated a transparent rule-based algorithm linking urgency, difficulty, and available daily hours.</p>
+            </div>
+            <div style="background: var(--bg-surface-subtle); padding: 1.25rem; border-radius: var(--radius-md);">
+              <strong style="color: var(--text-primary); display: block; margin-bottom: 0.25rem;">3. Validation & Testing</strong>
+              <p style="font-size: 0.88rem;">Structured testing cycles with college peers to measure usability, clarity, and genuine study completion.</p>
+            </div>
+          </div>
+
+          <div style="background: var(--primary-light); border-left: 4px solid var(--primary); padding: 1rem; border-radius: var(--radius-sm); font-size: 0.9rem; color: var(--text-primary);">
+            <strong>Prototype Note:</strong> StudyFlow is a functional college prototype created for usability testing. All priority calculations are transparent and deterministic, with zero external server dependencies.
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="brand">
+            <div class="brand-icon">⚡</div>
+            <div>Study<span>Flow</span></div>
+          </div>
+          <p>
+            "Plan your time. Focus your effort. Track your progress."<br>
+            Empowering students with structured, stress-free academic schedules.
+          </p>
+        </div>
+
+        <div class="footer-nav">
+          <div class="footer-nav-col">
+            <h4>Application</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="planner.html">Study Planner</a></li>
+              <li><a href="dashboard.html">Analytics Dashboard</a></li>
+              <li><a href="focus.html">Focus Mode</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-nav-col">
+            <h4>Project Info</h4>
+            <ul>
+              <li><a href="#problem">The Problem</a></li>
+              <li><a href="#solution">Our Solution</a></li>
+              <li><a href="#about-project">Design Thinking Framework</a></li>
+              <li><a href="https://github.com" target="_blank" rel="noopener">GitHub Repository</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 StudyFlow • <strong>Project Better Tomorrow</strong> (College Design Thinking Prototype)
+        </div>
+        <div>
+          Client-side prototype built with HTML5, CSS3 & Vanilla JavaScript.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
