@@ -17,7 +17,9 @@ Rather than acting as a static todo-list or a passive calendar, StudyFlow operat
 
 ## 2. Problem Statement
 
-Through student interviews and empathy mapping during the initial phase of Project Better Tomorrow, the core academic friction point was identified:
+During the problem exploration phase, common academic challenges faced by college students were examined using AI-assisted brainstorming and the student's own academic context. The problem was refined around the everyday difficulty of managing multiple subjects, assessments, deadlines, and limited study time.
+
+No fabricated interviews, surveys, or user research were used in developing this prototype.
 
 > *"Students often struggle to manage multiple subjects, assessments, assignments, deadlines, and limited study time. They may know what they need to study, but they struggle to decide what to study first, how much time to allocate to each subject, and how to track their progress."*
 
@@ -177,7 +179,8 @@ This project was built following Stanford d.school's Design Thinking methodology
 
 | Phase | Activity in Project Better Tomorrow |
 |---|---|
-| **1. Empathize** | Observed fellow students juggling 5+ courses, lab submissions, and semester tests. Discovered widespread anxiety stemming from lack of a structured daily plan. |
+| **1. Empathize** | The project began by examining common academic friction experienced by college students, particularly the difficulty of balancing multiple subjects, assessments, deadlines, and limited study time. AI-assisted brainstorming was used to organize and articulate potential pain points, while the final problem focus was selected based on the student's own academic context.
+Formal external interviews or surveys were not conducted during this prototype stage.  |
 | **2. Define** | Formulated the actionable problem statement: *How might we help students decide what to study first, how much time to dedicate, and verify their daily progress?* |
 | **3. Ideate** | Brainstormed dynamic schedule generation based on multi-factor scoring (urgency + difficulty + workload) rather than static calendars. |
 | **4. Prototype** | Built StudyFlow as a responsive client-side web prototype with interactive schedule generation and Pomodoro focus tracking. |
@@ -234,26 +237,10 @@ Each participant is asked to complete the following 6 core tasks:
 
 ### Tester Feedback Log
 
-#### Tester 1:
-- **Participant Profile:** Engineering Student (4th Semester)
-- **Task Completion Rate:** [ Pending testing session ]
-- **Observed Friction Points:** [ To be recorded during live test ]
-- **Qualitative Feedback:** [ To be recorded during live test ]
-- **Suggested Improvement:** [ To be recorded during live test ]
+Developer testing of the functional prototype has been completed across the main user flows, including planning, schedule generation, priority calculation, task tracking, Focus Mode, dashboard updates, localStorage persistence, theme switching, Demo Mode, and responsive layouts.
 
-#### Tester 2:
-- **Participant Profile:** Computer Science Undergraduate
-- **Task Completion Rate:** [ Pending testing session ]
-- **Observed Friction Points:** [ To be recorded during live test ]
-- **Qualitative Feedback:** [ To be recorded during live test ]
-- **Suggested Improvement:** [ To be recorded during live test ]
+External usability validation with three student testers is currently pending. No tester names, ratings, satisfaction scores, quotes, or feedback results have been fabricated.
 
-#### Tester 3:
-- **Participant Profile:** Management / Information Systems Student
-- **Task Completion Rate:** [ Pending testing session ]
-- **Observed Friction Points:** [ To be recorded during live test ]
-- **Qualitative Feedback:** [ To be recorded during live test ]
-- **Suggested Improvement:** [ To be recorded during live test ]
 
 ---
 
@@ -274,4 +261,4 @@ Each participant is asked to complete the following 6 core tasks:
 - [x] Zero "Lorem ipsum" or fabricated testimonials.
 
 ---
-*Created for Project Better Tomorrow • College Design Thinking Assignment • 2026*
+  *Created for Project Better*
