@@ -261,4 +261,11 @@ External usability validation with three student testers is currently pending. N
 - [x] Zero "Lorem ipsum" or fabricated testimonials.
 
 ---
+
+## Project Documentation
+
+- [AI Interaction Audit](documentation/AI_Interaction_Audit.md)
+- [Prototype & Validation Report](documentation/Prototype_Validation_Report.md)
+
+---
   *Created for Project Better*
